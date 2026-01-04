@@ -9,8 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class PatientRegisterServlet extends HttpServlet {
+public class PatientLoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -20,10 +21,10 @@ public class PatientRegisterServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PatientRegisterServlet</title>");
+            out.println("<title>Servlet PatientLoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PatientRegisterServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PatientLoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -39,26 +40,28 @@ public class PatientRegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            String patient_name = request.getParameter("patient_name");            
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String contact = request.getParameter("contact");
-            String gender = request.getParameter("gender");            
-            String address = request.getParameter("address");
-            
-            Patient p = new Patient();
-            p.setPatient_name(patient_name);
-            p.setEmail(email);
-            p.setPassword(password);
-            p.setContact(contact);
-            p.setGender(gender);
-            p.setAddress(address);
-            
-            PatientDAO.RegisterPatient(p);
-            
-            response.sendRedirect("patient/patient_login.jsp");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        
+        Patient p = PatientDAO.LoginPatient(email, password);
+        
+        if(p != null){
+            HttpSession session = request.getSession();
+            session.setAttribute("PatientID", p.getPatient_id());
+            session.setAttribute("PatientName", p.getPatient_name());
+            response.sendRedirect("patient/Patient_dashboard.jsp");
+        }else{
+            out.println("<script> alert('Invalid Email/Password') </script>");
+        }
+        
     }
-    
+
+    public PatientLoginServlet() {
+    }
+
     @Override
     public String getServletInfo() {
         return "Short description";
