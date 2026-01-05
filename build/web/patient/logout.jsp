@@ -1,4 +1,4 @@
 <% 
     session.invalidate();
-    response.sendRedirect("patient_login.jsp");
+    response.sendRedirect("../index.jsp");
 %>
