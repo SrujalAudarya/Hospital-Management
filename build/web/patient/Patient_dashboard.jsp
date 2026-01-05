@@ -2,7 +2,7 @@
 
 <%
     if (session.getAttribute("PatientID") == null) {
-        response.sendRedirect("patient_login.jsp");
+        response.sendRedirect("../index.jsp");
     }
 %>
 

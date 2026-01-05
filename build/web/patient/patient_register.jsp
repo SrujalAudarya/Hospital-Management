@@ -81,6 +81,16 @@
         .btn-register:hover {
             opacity: 0.9;
         }
+        
+        .link {
+            color: #4dd0e1;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +141,10 @@
         <button type="submit" class="btn btn-register btn-block mt-4">
             REGISTER PATIENT
         </button>
+        
+        <div class="text-center mt-3">
+            <a href="patient_register.jsp" class="link">Have Account? Login Here</a>
+        </div>
 
     </form>
 </div>
