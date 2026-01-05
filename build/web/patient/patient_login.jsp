@@ -1,8 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    if(session.getAttribute("PatientID") != null){
+        response.sendRedirect("Patient_dashboard.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Patient Login</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -108,6 +117,22 @@
             <i class="fas fa-lock input-icon"></i>
             <input type="password" class="form-control" name="password" placeholder="Password" required>
         </div>
+        
+            <%
+            String error = (String) session.getAttribute("loginError");
+            if (error != null) {
+            %>
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert"
+                 style="border-radius: 30px;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong> Login Failed!</strong> <%= error %>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+            <%
+               session.removeAttribute("loginError");
+            }
+            %>
+
 
         <button type="submit" class="btn btn-login btn-block mt-4">
             LOGIN

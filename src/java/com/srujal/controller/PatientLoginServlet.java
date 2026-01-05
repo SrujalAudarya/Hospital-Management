@@ -54,7 +54,11 @@ public class PatientLoginServlet extends HttpServlet {
             session.setAttribute("PatientName", p.getPatient_name());
             response.sendRedirect("patient/Patient_dashboard.jsp");
         }else{
-            out.println("<script> alert('Invalid Email/Password') </script>");
+           HttpSession session = request.getSession();
+           session.setAttribute("loginError", "Invalid Email or Password!");
+           response.sendRedirect("patient/patient_login.jsp");
+
+
         }
         
     }
