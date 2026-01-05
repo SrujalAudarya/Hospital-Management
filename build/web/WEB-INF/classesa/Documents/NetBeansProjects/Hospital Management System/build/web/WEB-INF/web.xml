@@ -8,6 +8,10 @@
         <servlet-name>PatientLoginServlet</servlet-name>
         <servlet-class>com.srujal.controller.PatientLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookAppointmentServlet</servlet-name>
+        <servlet-class>com.srujal.controller.BookAppointmentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PatientRegisterServlet</servlet-name>
         <url-pattern>/PatientRegisterServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>PatientLoginServlet</servlet-name>
         <url-pattern>/PatientLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookAppointmentServlet</servlet-name>
+        <url-pattern>/BookAppointmentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

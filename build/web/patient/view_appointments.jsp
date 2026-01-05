@@ -19,6 +19,9 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
         body {
@@ -98,6 +101,21 @@
 <div class="container mt-5">
 
     <h3 class="mb-4 text-center">📅 Appointment List</h3>
+    
+    <%
+        String success = (String) session.getAttribute("success");
+        if (success != null) {
+    %>
+        <div class="alert alert-success alert-dismissible fade show text-center"
+             role="alert" style="border-radius: 30px;">
+            <i class="fas fa-check-circle"></i>
+            <strong> Success!</strong> <%= success %>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    <%
+            session.removeAttribute("success");
+        }
+    %>
 
     <div class="table-card">
         <table class="table table-borderless table-hover text-center">
