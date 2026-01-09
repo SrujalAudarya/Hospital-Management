@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/web/patient/patient_login.jsp</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/web/patient/Patient_dashboard.jsp</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/controller/PatientRegisterServlet.java</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/dao/AppointmentDAO.java</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/controller/BookAppointmentServlet.java</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/model/Appointment.java</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/web/patient/view_appointments.jsp</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/web/index.jsp</file>
             <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/dao/PatientDAO.java</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/src/java/com/srujal/controller/PatientLoginServlet.java</file>
+            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/Hospital%20Management%20System/web/patient/book_appointment.jsp</file>
         </group>
     </open-files>
 </project-private>

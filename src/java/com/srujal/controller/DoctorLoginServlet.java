@@ -1,16 +1,19 @@
 
 package com.srujal.controller;
 
-import com.srujal.dao.AppointmentDAO;
+import com.srujal.dao.DoctorDAO;
+import com.srujal.model.Doctor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class BookAppointmentServlet extends HttpServlet {
+@WebServlet(name = "DoctorLoginServlet", urlPatterns = {"/DoctorLoginServlet"})
+public class DoctorLoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -20,10 +23,10 @@ public class BookAppointmentServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BookAppointmentServlet</title>");
+            out.println("<title>Servlet DoctorLoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet BookAppointmentServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DoctorLoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -39,24 +42,26 @@ public class BookAppointmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession();
-        int patient_id = (int) session.getAttribute("PatientID");
+
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            Doctor d =  DoctorDAO.LoginDoctor(email, password);
+
+            if(d != null){
+                HttpSession session = request.getSession();
+                session.setAttribute("doctor_id", d.getDoctor_id());
+                session.setAttribute("doctor_name", d.getDoctor_name());
+                session.setAttribute("email", d.getEmail());
+                session.setAttribute("contact", d.getContact());
+                session.setAttribute("dept_id", d.getDept_id());
+                response.sendRedirect("doctor/doctor_dashboard.jsp");
+            }else{
+               HttpSession session = request.getSession();
+               session.setAttribute("loginError", "Invalid Email or Password!");
+               response.sendRedirect("doctor/doctor_login.jsp");
+            }
         
-        int doctor_id = Integer.parseInt(request.getParameter("doctor_id"));
-        String appointment_date = request.getParameter("appointment_date");
-        String appointment_time = request.getParameter("appointment_time");
-        
-        Boolean result = AppointmentDAO.BookAppointment(doctor_id, patient_id, appointment_date, appointment_time);
-        
-        response.setContentType("text/html;charset=UTF-8");
-            
-        if (result) {
-            session.setAttribute("success", "Appointment booked successfully!");
-            response.sendRedirect("patient/view_appointments.jsp");
-        }else {
-            session.setAttribute("error", "Failed to book appointment!");
-            response.sendRedirect("patient/book_appointment.jsp");
-        }
     }
 
     @Override
