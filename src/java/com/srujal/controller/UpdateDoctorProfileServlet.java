@@ -43,7 +43,7 @@ public class UpdateDoctorProfileServlet extends HttpServlet {
             HttpSession session = request.getSession(false); 
             
             if (session == null || session.getAttribute("doctor_id") == null) {
-                response.sendRedirect("Doctor/doctor_login.jsp");
+                response.sendRedirect("doctor/doctor_login.jsp");
                 return;
             }
             
@@ -61,7 +61,7 @@ public class UpdateDoctorProfileServlet extends HttpServlet {
             } else {
                 session.setAttribute("profileError", "Profile update failed!");
             }
-            response.sendRedirect("Doctor/view_profile.jsp");
+            response.sendRedirect("doctor/view_profile.jsp");
     }
 
     @Override

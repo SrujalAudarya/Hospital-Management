@@ -4,7 +4,7 @@
 
 <%
     if (session.getAttribute("doctor_id") == null) {
-        response.sendRedirect("doctor_login.jsp");
+        response.sendRedirect("index.jsp");
         return;
     }
 %>
