@@ -42,21 +42,22 @@ public class AdminLoginServlet extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        
+        HttpSession session = request.getSession(true); // always create session
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        
+
         Admin admin = AdminDAO.LoginAdmin(username, password);
-        
+
         if(admin != null){
             session.setAttribute("admin_id", admin.getAdmin_id());
-            session.setAttribute("username", admin.getUsername());            session.setAttribute("username", admin.getUsername());
-            session.setAttribute("password", admin.getPassword());
-            response.sendRedirect("admin/admin_dashboard.jsp");
-        }else{
+            session.setAttribute("username", admin.getUsername());
+            session.setAttribute("ROLE", "ADMIN");
+
+            response.sendRedirect(request.getContextPath() + "/admin/admin_dashboard.jsp");
+        } else {
             session.setAttribute("loginError", "Invalid Email or Password!");
-            response.sendRedirect("admin/admin_login.jsp");
+            response.sendRedirect(request.getContextPath() + "/admin/admin_login.jsp");
         }
     }
 

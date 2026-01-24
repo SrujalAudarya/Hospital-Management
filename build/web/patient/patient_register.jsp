@@ -143,7 +143,7 @@
         </button>
         
         <div class="text-center mt-3">
-            <a href="patient_register.jsp" class="link">Have Account? Login Here</a>
+            <a href="patient_login.jsp" class="link">Have Account? Login Here</a>
         </div>
 
     </form>
