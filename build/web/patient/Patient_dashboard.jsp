@@ -95,6 +95,9 @@
         <span class="text-white mr-3">
             Welcome, <b><%= session.getAttribute("PatientName") %></b>
         </span>
+        <a href="view_profile.jsp" class="btn btn-outline-info btn-sm mr-2">
+            View Profile
+        </a>
         <a href="logout.jsp" class="btn btn-outline-light btn-sm">
             Logout
         </a>

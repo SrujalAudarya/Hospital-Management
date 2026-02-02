@@ -64,7 +64,7 @@
 <nav class="navbar navbar-expand-lg mb-4"
      style="background: rgba(0,0,0,0.35); backdrop-filter: blur(12px);">
     
-    <a class="navbar-brand text-info font-weight-bold" href="patient_dashboard.jsp">
+    <a class="navbar-brand text-info font-weight-bold" href="Patient_dashboard.jsp">
         Patient Panel
     </a>
 

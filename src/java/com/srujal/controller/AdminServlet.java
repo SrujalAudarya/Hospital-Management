@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package com.srujal.controller;
 
 import com.srujal.dao.AdminDAO;
@@ -71,21 +68,6 @@ public class AdminServlet extends HttpServlet {
             response.sendRedirect("admin/manage_doctors.jsp");
         }
 
-        /* ================= ADD DEPARTMENT ================= */
-        if ("addDepartment".equals(action)) {
-
-            String deptName = request.getParameter("dept_name");
-
-            boolean result = AdminDAO.addDepartment(deptName);
-
-            if (result) {
-                session.setAttribute("success", "Department added successfully!");
-            } else {
-                session.setAttribute("error", "Failed to add department!");
-            }
-            response.sendRedirect("admin/manage_departments.jsp");
-        }
-        
         try {
 
             /* ================= DEPARTMENT ================= */
@@ -93,14 +75,6 @@ public class AdminServlet extends HttpServlet {
                 String deptName = request.getParameter("dept_name");
                 AdminDAO.addDepartment(deptName);
                 AdminDAO.insertLog("ADMIN", adminId, "Added department: " + deptName);
-                response.sendRedirect("admin/manage_departments.jsp");
-            }
-
-            if ("updateDepartment".equals(action)) {
-                int deptId = Integer.parseInt(request.getParameter("dept_id"));
-                String deptName = request.getParameter("dept_name");
-                AdminDAO.updateDepartment(deptId, deptName);
-                AdminDAO.insertLog("ADMIN", adminId, "Updated department ID: " + deptId);
                 response.sendRedirect("admin/manage_departments.jsp");
             }
             
@@ -116,18 +90,6 @@ public class AdminServlet extends HttpServlet {
                 int doctorId = Integer.parseInt(request.getParameter("doctor_id"));
                 AdminDAO.deleteDoctor(doctorId);
                 AdminDAO.insertLog("ADMIN", adminId, "Deleted doctor ID: " + doctorId);
-                response.sendRedirect("admin/manage_doctors.jsp");
-            }
-            
-            if ("updateDoctor".equals(action)) {
-                int doctorId = Integer.parseInt(request.getParameter("doctor_id"));
-                String name = request.getParameter("doctor_name");
-                String email = request.getParameter("email");
-                String contact = request.getParameter("contact");
-                int deptId = Integer.parseInt(request.getParameter("dept_id"));
-
-                AdminDAO.updateDoctor(doctorId, name, email, contact, deptId);
-                AdminDAO.insertLog("ADMIN", adminId, "Updated doctor ID: " + doctorId);
                 response.sendRedirect("admin/manage_doctors.jsp");
             }
             

@@ -99,7 +99,7 @@
     </div>
 
     <!-- Dashboard Cards -->
-    <div class="row">
+    <div class="row justify-content-center">
 
         <!-- Departments -->
         <div class="col-md-4 mb-4">
@@ -155,18 +155,6 @@
                 </div>
             </a>
         </div>
-
-        <!-- Security -->
-        <div class="col-md-4 mb-4">
-            <a href="admin_profile.jsp" class="text-white text-decoration-none">
-                <div class="dashboard-card text-center">
-                    <i class="fas fa-user-shield"></i>
-                    <h5>Admin Profile</h5>
-                    <p>View and manage admin profile & security.</p>
-                </div>
-            </a>
-        </div>
-
     </div>
 
 </div>

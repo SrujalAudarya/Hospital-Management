@@ -51,22 +51,18 @@ public class AdminDAO {
     }
 
     
-    public static boolean addDepartment(String deptName){
-        
-        boolean status = false;
+    public static void addDepartment(String deptName){
         
         try(Connection con = DbConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(
                 "INSERT INTO department(dept_name) VALUES(?)")){
 
             ps.setString(1, deptName);
-            int rows = ps.executeUpdate();
-            if(rows > 0) status = true;
+            ps.executeUpdate();
 
         }catch(Exception e){
             e.printStackTrace();
         }
-        return status;
     }
     
     public static boolean deleteDepartment(int deptId) {
@@ -74,20 +70,6 @@ public class AdminDAO {
             String sql = "DELETE FROM department WHERE dept_id=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, deptId);
-            ps.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static boolean updateDepartment(int deptId, String deptName) {
-        try (Connection con = DbConnection.getConnection()) {
-            String sql = "UPDATE department SET dept_name=? WHERE dept_id=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, deptName);
-            ps.setInt(2, deptId);
             ps.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -135,24 +117,6 @@ public class AdminDAO {
         return false;
     }
 
-    // UPDATE DOCTOR
-    public static boolean updateDoctor(int id, String name, String email, String contact, int deptId) {
-        try (Connection con = DbConnection.getConnection()) {
-            String sql = "UPDATE doctor SET doctor_name=?, email=?, contact=?, dept_id=? WHERE doctor_id=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setString(3, contact);
-            ps.setInt(4, deptId);
-            ps.setInt(5, id);
-            ps.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    
     public static boolean updateAppointmentStatus(int appId, String status) {
         try (Connection con = DbConnection.getConnection()) {
             String sql = "UPDATE appointment SET status=? WHERE appointment_id=?";

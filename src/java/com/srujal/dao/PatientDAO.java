@@ -58,4 +58,25 @@ public class PatientDAO {
         }
         return p;
     }
+    
+    public static boolean updateProfile(int patientId, String name, String contact, String address) {
+        boolean status = false;
+        try (Connection con = DbConnection.getConnection()) {
+
+            String sql = "UPDATE patient SET patient_name=?, contact=?, address=? WHERE patient_id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, name);
+            ps.setString(2, contact);
+            ps.setString(3, address);
+            ps.setInt(4, patientId);
+
+            ps.executeUpdate();
+            status = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
 }
