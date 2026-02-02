@@ -126,6 +126,7 @@
                     <th>Time</th>
                     <th>Doctor Name</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -139,8 +140,8 @@
                 try {
                     con = DbConnection.getConnection();
 
-                    String sql = "SELECT a.appointment_date, a.appointment_time, " +
-                                 "d.doctor_name, a.status " +
+                    String sql = "SELECT a.appointment_id, a.appointment_date, a.appointment_time, "
+                                + "d.doctor_name, a.status " +
                                  "FROM appointment a " +
                                  "JOIN doctor d ON a.doctor_id = d.doctor_id "
                                  + "WHERE a.patient_id = ?";
@@ -173,6 +174,29 @@
                             } else {
                         %>
                             <span class="badge badge-status badge-pending">Pending</span>
+                        <%
+                            }
+                        %>
+                    </td>
+
+                    <!-- ACTION COLUMN -->
+                    <td>
+                        <%
+                            if ("Pending".equalsIgnoreCase(status)) {
+                        %>
+                        <form method="post"
+                              action="<%= request.getContextPath() %>/CancelAppointmentServlet"
+                              onsubmit="return confirm('Are you sure you want to cancel this appointment?');">
+                            <input type="hidden" name="appointment_id"
+                                   value="<%= rs.getInt("appointment_id") %>">
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </form>
+                        <%
+                            } else {
+                        %>
+                            <span class="text-muted">—</span>
                         <%
                             }
                         %>

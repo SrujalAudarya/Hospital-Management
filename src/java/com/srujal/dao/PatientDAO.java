@@ -79,4 +79,30 @@ public class PatientDAO {
         }
         return status;
     }
+    
+    public static boolean deletePendingAppointment(int appointmentId, int patientId) {
+        boolean status = false;
+
+        try (Connection con = DbConnection.getConnection()) {
+
+            String sql =
+                "DELETE FROM appointment " +
+                "WHERE appointment_id = ? AND patient_id = ? AND status = 'Pending'";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, appointmentId);
+            ps.setInt(2, patientId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows > 0) {
+                status = true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 }
