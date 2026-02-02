@@ -133,13 +133,13 @@
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="dashboard-card">
-                <i class="fas fa-check-circle"></i>
-                <h5>Approve Appointments</h5>
-                <a href="manage_appointments.jsp" class="text-white">Manage</a>
+            <div class="dashboard-card text-center">
+                <i class="fas fa-file-medical"></i>
+                <h5>Add Prescription</h5>
+                <a href="add_prescription.jsp" class="text-white">Manage</a>
             </div>
         </div>
-
+        
         <div class="col-md-4 mb-4">
             <div class="dashboard-card">
                 <i class="fas fa-user-cog"></i>

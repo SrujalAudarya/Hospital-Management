@@ -38,4 +38,36 @@ public class AppointmentDAO {
         }
         return status;
     }
+    
+    public static boolean updateAppointmentStatus(int appointmentId, String status) {
+        boolean result = false;
+        Connection con = null;
+        PreparedStatement ps = null;
+
+        try {
+            con = DbConnection.getConnection();
+            String sql = "UPDATE appointment SET status=? WHERE appointment_id=?";
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, status);
+            ps.setInt(2, appointmentId);
+
+            ps.executeUpdate();
+            result = true;
+
+            System.out.println("Appointment status updated to: " + status);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
 }

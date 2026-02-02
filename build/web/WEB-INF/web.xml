@@ -36,6 +36,14 @@
         <servlet-name>CancelAppointmentServlet</servlet-name>
         <servlet-class>com.srujal.controller.CancelAppointmentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
+        <servlet-class>com.srujal.controller.UpdateAppointmentStatusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddPrescriptionServlet</servlet-name>
+        <servlet-class>com.srujal.controller.AddPrescriptionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>CancelAppointmentServlet</servlet-name>
         <url-pattern>/CancelAppointmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAppointmentStatusServlet</servlet-name>
+        <url-pattern>/UpdateAppointmentStatusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPrescriptionServlet</servlet-name>
+        <url-pattern>/AddPrescriptionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
