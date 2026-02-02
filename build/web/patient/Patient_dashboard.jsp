@@ -114,7 +114,7 @@
         </p>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center align-items-center text-center">
 
         <!-- Book Appointment -->
         <div class="col-md-4 mb-4">
@@ -142,6 +142,21 @@
                 <a href="view_doctors.jsp">Click Here</a>
             </div>
         </div>
+        
+        <div class="col-md-4 mb-4">
+    <div class="card text-center shadow-lg"
+         style="border-radius:20px;background:rgba(255,255,255,0.15);color:#fff;">
+        <div class="card-body">
+            <i class="fas fa-file-medical fa-3x text-info mb-3"></i>
+            <h5 class="card-title">My Prescriptions</h5>
+            <p class="card-text">View doctor prescriptions</p>
+            <a href="view_prescriptions.jsp" class="btn btn-info btn-sm">
+                View Prescriptions
+            </a>
+        </div>
+    </div>
+</div>
+
 
     </div>
 </div>
