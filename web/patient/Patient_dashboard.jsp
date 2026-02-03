@@ -3,6 +3,7 @@
 <%
     if (session.getAttribute("PatientID") == null) {
         response.sendRedirect("../index.jsp");
+        return;
     }
 %>
 
@@ -150,7 +151,7 @@
             <i class="fas fa-file-medical fa-3x text-info mb-3"></i>
             <h5 class="card-title">My Prescriptions</h5>
             <p class="card-text">View doctor prescriptions</p>
-            <a href="view_prescriptions.jsp" class="btn btn-info btn-sm">
+            <a href="my_prescriptions.jsp" class="btn btn-info btn-sm">
                 View Prescriptions
             </a>
         </div>

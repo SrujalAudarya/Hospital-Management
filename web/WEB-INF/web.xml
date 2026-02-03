@@ -48,6 +48,10 @@
         <servlet-name>EditPrescriptionServlet</servlet-name>
         <servlet-class>com.srujal.controller.EditPrescriptionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DownloadPrescriptionPDF</servlet-name>
+        <servlet-class>com.srujal.controller.DownloadPrescriptionPDF</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>EditPrescriptionServlet</servlet-name>
         <url-pattern>/EditPrescriptionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadPrescriptionPDF</servlet-name>
+        <url-pattern>/DownloadPrescriptionPDF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
