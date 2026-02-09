@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/HospitalManagementSystem/web/doctor/doctor_dashboard.jsp</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/HospitalManagementSystem/src/java/com/srujal/controller/AddPrescriptionServlet.java</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/HospitalManagementSystem/src/java/com/srujal/dao/PrescriptionDAO.java</file>
-            <file>file:/C:/Users/sruja/Documents/NetBeansProjects/HospitalManagementSystem/web/doctor/view_appointments.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
